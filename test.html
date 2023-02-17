@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th,
+        td {
+            width: 200px;
+            outline: 1px solid #eee;
+            padding: 5px;
+        }
+
+        .modal-vue .overlay {
+            position: fixed;
+            z-index: 9998;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .modal-vue .modal {
+            position: relative;
+            width: 300px;
+            z-index: 9999;
+            margin: 0 auto;
+            padding: 20px 30px;
+            background-color: #fff;
+        }
+
+        .modal-vue .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="modal-vue">
+        <!-- button show -->
+        <button @click="showModal = true">點開有驚喜</button>
+
+        <!-- overlay -->
+        <div class="overlay" v-if="showModal" @click="showModal = false"></div>
+
+        <!-- modal -->
+        <div class="modal" v-if="showModal">
+            <button class="close" @click="showModal = false">x</button>
+            <span id="countdown">{{ final_str }}</span>
+        </div>
+
+
+        <table>
+            <tr>
+                <th>交易對pair</th>
+                <th>標記價格mark price</th>
+                <th>指數價格index price</th>
+                <th>下次資金費率結算時間nextFundingTime</th>
+            </tr>
+            <tr v-for="(data, index) in dataList">
+                <td>{{ data.pair }}</td>
+                <td>{{ data.markPrice }}</td>
+                <td>{{ data.indexPrice }}</td>
+                <td>{{ data.nextFundingTime }}</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <script src="./vender/vue/vue.global.js"></script>
+    <script src="test.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>
