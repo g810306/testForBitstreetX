@@ -57,7 +57,7 @@ const app = Vue.createApp({
     },
   },
   created() {
-    this.getdata();
+    this.getdata(); 
   },
 });
 app.mount("#app");
