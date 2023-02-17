@@ -67,7 +67,7 @@
                 <td>{{ data.pair }}</td>
                 <td>{{ data.markPrice }}</td>
                 <td>{{ data.indexPrice }}</td>
-                <td>{{ data.nextFundingTime }}</td>
+                <td>{{ newDate(data.nextFundingTime) }}</td>
             </tr>
 
         </table>
@@ -75,6 +75,7 @@
 
     <script src="./vender/vue/vue.global.js"></script>
     <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
     <script>
 
     </script>

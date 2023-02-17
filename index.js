@@ -15,6 +15,14 @@ const app = Vue.createApp({
     }, 1000);
   },
   methods: {
+    newDate(date) {
+      let newDate = moment(date).format("YYYY-MM-DD HH:mm:ss");
+      if (date != 0) {
+        return newDate;
+      } else {
+        return "NaN";
+      }
+    },
     getdata() {
       let that = this;
       const url = "https://testnet.binancefuture.com/dapi/v1/premiumIndex";
@@ -23,7 +31,7 @@ const app = Vue.createApp({
           return resp.json();
         })
         .then(function (userList) {
-          //   console.log(userList);
+          // console.log(userList);
           that.dataList = userList;
           //   console.log(that.dataList);
         });
